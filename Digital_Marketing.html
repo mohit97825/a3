@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Digital Marketing</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background: #255697;
+        color: white;
+        padding: 20px;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .welcome-text {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    .navbar {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        margin: 0;
+    }
+
+    .navbar li {
+        margin: 0 15px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+        color: #ffcc00;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar {
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .navbar li {
+            margin: 10px 0;
+            /* Space between vertical items */
+        }
+
+        .navbar a {
+            padding: 10px;
+            /* Add padding for easier tapping */
+            display: block;
+            /* Make links block level for full width */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo {
+            width: 40px;
+            /* Smaller logo on small screens */
+        }
+
+        .header-content {
+            text-align: center;
+            /* Center-align content */
+        }
+    }
+
+    .hero {
+        background: url(image/digital\ bg.jpg) gray;
+        background-size: contain;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        background-blend-mode: multiply;
+    }
+
+    .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .hero-text a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .hero-text h2 {
+        font-size: 3rem;
+        margin: 0;
+        font-weight: bolder;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .Pera {
+        width: 100%;
+        height: auto;
+        /* Allow height to adjust based on content */
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        /* Include padding in the width */
+    }
+
+    .Pera h2{
+        color: #ffcc00;
+    }
+
+    .Pera ol li{
+        font-weight: bold;
+    }
+
+    .Pera img {
+        width: 100%;
+        /* Make the image responsive */
+        max-width: 600px;
+        /* Set a maximum width for large screens */
+        height: auto;
+        /* Maintain aspect ratio */
+        display: block;
+        /* Center the image */
+        margin: 0 auto;
+        /* Center the image horizontally */
+    }
+
+    @media (max-width: 768px) {
+        .Pera {
+            padding: 10px;
+            /* Reduce padding on smaller screens */
+            font-size: 1rem;
+            /* Adjust font size for better readability */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .Pera {
+            font-size: 0.9rem;
+            /* Further reduce font size for very small screens */
+        }
+    }
+    
+    .footer {
+        width: 100%;
+        height: auto;
+        /* Adjust height for responsiveness */
+        background-color: rgb(24, 29, 56);
+        display: flex;
+        flex-wrap: wrap;
+        /* Allow wrapping of flex items */
+        align-items: flex-start;
+        /* Align items to the start */
+        justify-content: space-around;
+        color: white;
+        padding: 20px;
+        /* Add padding for spacing */
+    }
+
+    .footer>div {
+        width: 100%;
+        /* Full width on small screens */
+        height: auto;
+        /* Auto height to adjust content */
+        margin-bottom: 20px;
+        /* Space between sections */
+        line-height: 2;
+    }
+
+    .footer-div1,
+    .footer-div2,
+    .footer-div3,
+    .footer-div4 {
+        max-width: 300px;
+        /* Limit max width for larger screens */
+    }
+
+    .footer-div1 ul,
+    .footer-div2 ul,
+    .footer-div3 ul,
+    .footer-div4 ul {
+        padding: 0;
+        /* Remove default padding */
+    }
+
+    .footer-div1 ul li,
+    .footer-div2 ul li,
+    .footer-div3 ul li,
+    .footer-div4 ul li {
+        list-style: none;
+    }
+
+    .footer-div4 input {
+        padding: 10px 20px;
+    }
+
+    .footer-div4 button {
+        padding: 10px 20px;
+        background-color: #255697;
+        color: white;
+        border: transparent;
+    }
+
+    .heading {
+        font-size: 1.5rem;
+        /* Increase font size for headings */
+        font-weight: bold;
+        margin-bottom: 10px;
+        /* Space below heading */
+    }
+
+    .Gallery-img1 img,
+    .Gallery-img2 img {
+        width: 22%;
+        /* Adjust width to fit two images per row */
+    }
+
+    @media (min-width: 768px) {
+        .footer>div {
+            width: 24%;
+            /* Restore original width for larger screens */
+            height: 300px;
+            /* Set height back for larger screens */
+            margin-bottom: 0;
+            /* Remove bottom margin */
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="welcome-text">
+                <img src="LOGO.jpg" alt="Logo" class="logo">
+            </div>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="course.html">course</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Digital Marketing</h2>
+                    <a href="">Home</a>
+                    <a href="">About</a>
+                    <a href="">Course</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="Pera">
+            <img src="image/digital marktinbg.png" height="200px" alt="Digital Marketing">
+            <h2>Digital Marketing Courses</h2>
+            <ol>
+                <li>Google Digital Garage</li>
+                <li>Coursera</li>
+                <li>HubSpot Academy</li>
+                <li>Udacity</li>
+                <li>edX</li>
+                <li>LinkedIn Learning</li>
+                <li>Simplilearn</li>
+                <li>Skillshare</li>
+                <li>SEMrush Academy</li>
+                <li>Facebook Blueprint</li>
+            </ol>
+            <p>Digital marketing refers to the use of online channels to promote products or services and connect with consumers. It's an essential part of modern business, leveraging the internet's vast reach to engage audiences effectively. Here are some key components: <br><br>
+
+                Search Engine Optimization (SEO): This involves optimizing a website to rank higher in search engine results, making it more visible to potential customers. Effective SEO increases organic traffic and enhances credibility. <br> <br>
+                
+                Content Marketing: This strategy focuses on creating valuable and relevant content to attract and engage a target audience. It can include blogs, videos, infographics, and more, helping to establish brand authority and trust. <br> <br>
+                
+                Social Media Marketing: Utilizing platforms like Facebook, Instagram, and Twitter, businesses can build relationships with customers, promote products, and share content. Social media also provides opportunities for direct interaction and feedback. <br> <br>
+                
+                Email Marketing: This involves sending targeted emails to nurture leads and maintain customer relationships. Personalized email campaigns can drive conversions and keep customers informed about promotions and new products. <br> <br>
+                
+                Pay-Per-Click (PPC) Advertising: Businesses can run paid ads on search engines and social media, paying only when users click on their ads. PPC can quickly drive traffic and generate leads, making it a popular choice for immediate results. <br><br>
+
+                
+                Affiliate Marketing: This performance-based strategy involves partnering with affiliates who promote your products. Affiliates earn a commission for sales they generate, expanding your reach without upfront costs. <br> <br>
+                
+                Analytics and Data Analysis: Using tools like Google Analytics, businesses can track the effectiveness of their marketing efforts, understand consumer behavior, and refine their strategies based on data insights. <br> <br>
+                
+                Overall, digital marketing allows for precise targeting, real-time feedback, and the ability to adjust tactics quickly, making it an indispensable part of today’s marketing landscape.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-div1">
+                <ul>
+                    <li class="heading">Quick Link</li>
+                    <li>About us</li>
+                    <li>Contact Us</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms # Condition</li>
+                    <li>FAQ's & Help</li>
+                </ul>
+            </div>
+            <div class="footer-div2">
+                <ul>
+                    <li class="heading">Contact</li>
+                    <li><i class="fa-solid fa-location-dot"></i>123 Street, New York, JAIPUR</li>
+                    <li><i class="fa-solid fa-phone"></i>+91 54548 44454</li>
+                    <li><i class="fa-solid fa-envelope"></i>yahoo@gmail.com</li>
+                </ul>
+            </div>
+            <div class="footer-div3">
+                <ul>
+                    <li class="heading">Gallery</li>
+                </ul>
+                <div class="Gallery-img1">
+                    <img src="course1.jpg" width="22%" alt="">
+                    <img src="course2.jpg" width="22%" alt="">
+                    <img src="course3.jpg" width="23%" alt="">
+                </div>
+                <div class="Gallery-img2">
+                    <img src="course4.jpg" width="22%" alt="">
+                    <img src="course5.jpg" width="22%" alt="">
+                    <img src="course6.jpg" width="23%" alt="">
+                </div>
+            </div>
+            <div class="footer-div4">
+                <ul>
+                    <li class="heading">Newsletter</li>
+                    <li>Dolor amet sit justo amet elitr clita ipsum elitr est.</li>
+                    <li><input type="email" placeholder="Your email"></li>
+                    <br>
+                    <li><button>Sign up</button></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Book Library</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background: #255697;
+        color: white;
+        padding: 20px;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .welcome-text {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    .navbar {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        margin: 0;
+    }
+
+    .navbar li {
+        margin: 0 15px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+        color: #ffcc00;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar {
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .navbar li {
+            margin: 10px 0;
+            /* Space between vertical items */
+        }
+
+        .navbar a {
+            padding: 10px;
+            /* Add padding for easier tapping */
+            display: block;
+            /* Make links block level for full width */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo {
+            width: 40px;
+            /* Smaller logo on small screens */
+        }
+
+        .header-content {
+            text-align: center;
+            /* Center-align content */
+        }
+    }
+
+    .hero {
+        background: url(image/book\ bg1.jpg) gray;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        background-blend-mode: multiply;
+    }
+
+    .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .hero-text a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .hero-text h2 {
+        font-size: 3rem;
+        margin: 0;
+        font-weight: bolder;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .Pera {
+        width: 100%;
+        height: auto;
+        /* Allow height to adjust based on content */
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        /* Include padding in the width */
+    }
+
+    .Pera img {
+        width: 100%;
+        /* Make the image responsive */
+        max-width: 600px;
+        /* Set a maximum width for large screens */
+        height: auto;
+        /* Maintain aspect ratio */
+        display: block;
+        /* Center the image */
+        margin: 0 auto;
+        /* Center the image horizontally */
+    }
+
+    @media (max-width: 768px) {
+        .Pera {
+            padding: 10px;
+            /* Reduce padding on smaller screens */
+            font-size: 1rem;
+            /* Adjust font size for better readability */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .Pera {
+            font-size: 0.9rem;
+            /* Further reduce font size for very small screens */
+        }
+    }
+
+    .footer {
+        width: 100%;
+        height: auto;
+        /* Adjust height for responsiveness */
+        background-color: rgb(24, 29, 56);
+        display: flex;
+        flex-wrap: wrap;
+        /* Allow wrapping of flex items */
+        align-items: flex-start;
+        /* Align items to the start */
+        justify-content: space-around;
+        color: white;
+        padding: 20px;
+        /* Add padding for spacing */
+    }
+
+    .footer>div {
+        width: 100%;
+        /* Full width on small screens */
+        height: auto;
+        /* Auto height to adjust content */
+        margin-bottom: 20px;
+        /* Space between sections */
+        line-height: 2;
+    }
+
+    .footer-div1,
+    .footer-div2,
+    .footer-div3,
+    .footer-div4 {
+        max-width: 300px;
+        /* Limit max width for larger screens */
+    }
+
+    .footer-div1 ul,
+    .footer-div2 ul,
+    .footer-div3 ul,
+    .footer-div4 ul {
+        padding: 0;
+        /* Remove default padding */
+    }
+
+    .footer-div1 ul li,
+    .footer-div2 ul li,
+    .footer-div3 ul li,
+    .footer-div4 ul li {
+        list-style: none;
+    }
+
+    .footer-div4 input {
+        padding: 10px 20px;
+    }
+
+    .footer-div4 button {
+        padding: 10px 20px;
+        background-color: #255697;
+        color: white;
+        border: transparent;
+    }
+
+    .heading {
+        font-size: 1.5rem;
+        /* Increase font size for headings */
+        font-weight: bold;
+        margin-bottom: 10px;
+        /* Space below heading */
+    }
+
+    .Gallery-img1 img,
+    .Gallery-img2 img {
+        width: 22%;
+        /* Adjust width to fit two images per row */
+    }
+
+    @media (min-width: 768px) {
+        .footer>div {
+            width: 24%;
+            /* Restore original width for larger screens */
+            height: 300px;
+            /* Set height back for larger screens */
+            margin-bottom: 0;
+            /* Remove bottom margin */
+        }
+    }
+
+    .popular {
+        width: 100%;
+        height: auto;
+    }
+
+    .popular-head {
+        width: 100%;
+        height: 100px;
+    }
+
+    .popular-head h1 {
+        padding-top: 2%;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .popular-course {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px 0;
+        /* Add padding for spacing */
+    }
+
+    .popular-course-div1,
+    .popular-course-div2,
+    .popular-course-div3 {
+        width: 100%;
+        /* Default full width */
+        max-width: 30%;
+        /* Reduced width for larger screens */
+        background-color: #f0fbfc;
+        text-align: center;
+        margin: 10px;
+        /* Margin for spacing */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* Optional shadow */
+    }
+
+    .popular-course-div1 img,
+    .popular-course-div2 img,
+    .popular-course-div3 img {
+        width: 100%;
+        height: auto;
+        /* Maintain aspect ratio */
+    }
+
+    .popular-course-div1 h1,
+    .popular-course-div2 h1,
+    .popular-course-div3 h1 {
+        font-size: 2rem;
+        margin: 10px 0;
+        /* Margin for spacing */
+    }
+
+    .popular-course-div1 p,
+    .popular-course-div2 p,
+    .popular-course-div3 p {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
+
+        .popular-course-div1,
+        .popular-course-div2,
+        .popular-course-div3 {
+            max-width: 40%;
+            /* Adjusted width for medium screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .popular-course-div1,
+        .popular-course-div2,
+        .popular-course-div3 {
+            max-width: 100%;
+            /* Full width on small screens */
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="welcome-text">
+                <img src="LOGO.jpg" alt="Logo" class="logo">
+            </div>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="course.html">course</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Book Library</h2>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="course.html">Course</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="Pera">
+            <img src="image/book.jpg" height="200px" alt="C">
+            <p>In an age where digital solutions enhance our reading experiences, a Personal Book Library Management
+                System offers a perfect blend of organization and accessibility for book lovers. This project aims to
+                develop a comprehensive system to catalog and manage a personal collection of books, ensuring that every
+                title is easily searchable and manageable. <br> <br>
+
+                The primary goal is to create a user-friendly application that allows individuals to track their books,
+                including details like title, author, genre, and publication date. Users will also be able to record
+                borrowed books, manage reading lists, and receive recommendations based on their preferences. <br> <br>
+
+                This Personal Book Library Management System will not only streamline the way users manage their collections but also foster a deeper appreciation for reading. By the end of this project, users will have a tailored tool to enhance their literary journey, making it easier to enjoy and share their love for books.
+
+
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-div1">
+                <ul>
+                    <li class="heading">Quick Link</li>
+                    <li>About us</li>
+                    <li>Contact Us</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms # Condition</li>
+                    <li>FAQ's & Help</li>
+                </ul>
+            </div>
+            <div class="footer-div2">
+                <ul>
+                    <li class="heading">Contact</li>
+                    <li><i class="fa-solid fa-location-dot"></i>123 Street, New York, JAIPUR</li>
+                    <li><i class="fa-solid fa-phone"></i>+91 54548 44454</li>
+                    <li><i class="fa-solid fa-envelope"></i>yahoo@gmail.com</li>
+                </ul>
+            </div>
+            <div class="footer-div3">
+                <ul>
+                    <li class="heading">Gallery</li>
+                </ul>
+                <div class="Gallery-img1">
+                    <img src="course1.jpg" width="22%" alt="">
+                    <img src="course2.jpg" width="22%" alt="">
+                    <img src="course3.jpg" width="23%" alt="">
+                </div>
+                <div class="Gallery-img2">
+                    <img src="course4.jpg" width="22%" alt="">
+                    <img src="course5.jpg" width="22%" alt="">
+                    <img src="course6.jpg" width="23%" alt="">
+                </div>
+            </div>
+            <div class="footer-div4">
+                <ul>
+                    <li class="heading">Newsletter</li>
+                    <li>Dolor amet sit justo amet elitr clita ipsum elitr est.</li>
+                    <li><input type="email" placeholder="Your email"></li>
+                    <br>
+                    <li><button>Sign up</button></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>About</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background: #255697;
+        color: white;
+        padding: 20px;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .welcome-text {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    .navbar {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        margin: 0;
+    }
+
+    .navbar li {
+        margin: 0 15px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+        color: #ffcc00;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar {
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .navbar li {
+            margin: 10px 0;
+            /* Space between vertical items */
+        }
+
+        .navbar a {
+            padding: 10px;
+            /* Add padding for easier tapping */
+            display: block;
+            /* Make links block level for full width */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo {
+            width: 40px;
+            /* Smaller logo on small screens */
+        }
+
+        .header-content {
+            text-align: center;
+            /* Center-align content */
+        }
+    }
+
+
+    .hero {
+        background: url(carousel.jpg) gray;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        background-blend-mode: multiply;
+    }
+
+    .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .hero-text a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .hero-text p {
+        margin-bottom: 40px;
+    }
+
+    .hero-text h2 {
+        font-size: 3rem;
+        margin: 0;
+        font-weight: bolder;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .temp {
+        width: 100%;
+        height: auto;
+        /* Change to auto for responsive height */
+        display: flex;
+        flex-wrap: wrap;
+        /* Allows items to wrap onto the next line */
+        justify-content: space-around;
+        /* Space items evenly */
+    }
+
+    .image1,
+    .image2,
+    .image3,
+    .image4 {
+        width: 230px;
+        height: 230px;
+        background-color: #f0fbfc;
+        text-align: center;
+        padding: 30px 20px;
+        margin: 10px;
+        /* Add margin for spacing */
+        box-sizing: border-box;
+        /* Include padding in width/height */
+        transition: 1s;
+    }
+
+    .image1 i,
+    .image2 i,
+    .image3 i,
+    .image4 i {
+        font-size: 3rem;
+    }
+
+    .image1 h2,
+    .image2 h2,
+    .image3 h2,
+    .image4 h2 {
+        font-size: 21px;
+        font-family: sans-serif;
+    }
+
+    .image1:hover,
+    .image2:hover,
+    .image3:hover,
+    .image4:hover {
+        transform: scale(1.05);
+        /* Slightly enlarge on hover */
+        background-color: #255697;
+        color: white;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+
+        .image1,
+        .image2,
+        .image3,
+        .image4 {
+            width: 100%;
+            /* Full width on smaller screens */
+            height: auto;
+            /* Height auto to maintain aspect ratio */
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .image1 i,
+        .image2 i,
+        .image3 i,
+        .image4 i {
+            font-size: 2rem;
+            /* Smaller icons on very small screens */
+        }
+
+        .image1 h2,
+        .image2 h2,
+        .image3 h2,
+        .image4 h2 {
+            font-size: 18px;
+            /* Smaller headings */
+        }
+
+        .temp {
+            flex-direction: column;
+            /* Stack items vertically on very small screens */
+            align-items: center;
+            /* Center items */
+        }
+    }
+
+    .about {
+        width: 100%;
+        height: auto;
+        /* Changed to auto for flexibility */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        /*  Allow wrapping on smaller screens */
+    }
+
+    .about1,
+    .about2 {
+        width: 50%;
+        height: auto;
+        /* Set height to auto for better content fitting */
+        padding: 20px;
+        /* Added padding for spacing */
+    }
+
+    .about1 img {
+        max-width: 80%;
+        /* Set max-width to 80% of the container */
+        height: auto;
+        /* Keep the aspect ratio */
+    }
+
+    .about2 h2 {
+        font-size: 1rem;
+        color: #255697;
+    }
+
+    .about2 h1 {
+        font-size: 2.5rem;
+        /* Slightly reduced for better scaling */
+    }
+
+    .about2 p {
+        color: #8469a3;
+    }
+
+    .about2 ul li {
+        color: #8499a0;
+    }
+
+    .about2 button {
+        padding: 15px 25px;
+        /* Adjusted padding */
+        background-color: #255697;
+        color: white;
+        border: none;
+        /* Added border styling */
+        cursor: pointer;
+        /* Added cursor for better UX */
+        transition: background-color 0.3s;
+        /* Smooth background change */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+
+        .about1,
+        .about2 {
+            width: 100%;
+            /* Full width on small screens */
+            text-align: center;
+            /* Center text for better readability */
+        }
+
+        .about2 h1 {
+            font-size: 2rem;
+            /* Smaller font size */
+        }
+
+        .about2 h2 {
+            font-size: 0.9rem;
+            /* Smaller subtitle */
+        }
+    }
+
+    .footer {
+        width: 100%;
+        height: auto;
+        /* Adjust height for responsiveness */
+        background-color: rgb(24, 29, 56);
+        display: flex;
+        flex-wrap: wrap;
+        /* Allow wrapping of flex items */
+        align-items: flex-start;
+        /* Align items to the start */
+        justify-content: space-around;
+        color: white;
+        padding: 20px;
+        /* Add padding for spacing */
+    }
+
+    .footer>div {
+        width: 100%;
+        /* Full width on small screens */
+        height: auto;
+        /* Auto height to adjust content */
+        margin-bottom: 20px;
+        /* Space between sections */
+        line-height: 2;
+    }
+
+    .footer-div1,
+    .footer-div2,
+    .footer-div3,
+    .footer-div4 {
+        max-width: 300px;
+        /* Limit max width for larger screens */
+    }
+
+    .footer-div1 ul,
+    .footer-div2 ul,
+    .footer-div3 ul,
+    .footer-div4 ul {
+        padding: 0;
+        /* Remove default padding */
+    }
+
+    .footer-div1 ul li,
+    .footer-div2 ul li,
+    .footer-div3 ul li,
+    .footer-div4 ul li {
+        list-style: none;
+    }
+
+    .footer-div4 input {
+        padding: 10px 20px;
+    }
+
+    .footer-div4 button {
+        padding: 10px 20px;
+        background-color: #255697;
+        color: white;
+        border: transparent;
+    }
+
+    .heading {
+        font-size: 1.5rem;
+        /* Increase font size for headings */
+        font-weight: bold;
+        margin-bottom: 10px;
+        /* Space below heading */
+    }
+
+    .Gallery-img1 img,
+    .Gallery-img2 img {
+        width: 22%;
+        /* Adjust width to fit two images per row */
+    }
+
+    @media (min-width: 768px) {
+        .footer>div {
+            width: 24%;
+            /* Restore original width for larger screens */
+            height: 300px;
+            /* Set height back for larger screens */
+            margin-bottom: 0;
+            /* Remove bottom margin */
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="welcome-text">
+                <img src="LOGO.jpg" alt="Logo" class="logo">
+            </div>
+            <nav>
+                <ul class="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="course.html">course</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>About</h2>
+                    <a href="index.html">
+                        <p>Home</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="temp">
+            <div class="image1">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>Skilled Instructors</h2>
+                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+            </div>
+            <div class="image2">
+                <i class="fa-solid fa-globe"></i>
+                <h2>Online Classes</h2>
+                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+            </div>
+            <div class="image3">
+                <i class="fa-solid fa-house-chimney"></i>
+                <h2>Home Projects</h2>
+                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+            </div>
+            <div class="image4">
+                <i class="fa-solid fa-book-open"></i>
+                <h2>Book Library</h2>
+                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="about1">
+                <img src="about.jpg" alt="about image" height="auto" width="90%">
+            </div>
+            <div class="about2">
+                <div class="about2-div1">
+                    <h2>ABOUT US</h2>
+                    <h1>Welcome to A3 it Soluation</h1>
+                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
+                        erat ipsum et lorem et sit.
+                        Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
+                        erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <ul>
+                        <li>Skilled Instructors</li>
+                        <li>Online Classes</li>
+                        <li>International Certificate</li>
+                    </ul>
+                    <button>Read More</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-div1">
+                <ul>
+                    <li class="heading">Quick Link</li>
+                    <li>About us</li>
+                    <li>Contact Us</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms # Condition</li>
+                    <li>FAQ's & Help</li>
+                </ul>
+            </div>
+            <div class="footer-div2">
+                <ul>
+                    <li class="heading">Contact</li>
+                    <li><i class="fa-solid fa-location-dot"></i>123 Street, New York, JAIPUR</li>
+                    <li><i class="fa-solid fa-phone"></i>+91 54548 44454</li>
+                    <li><i class="fa-solid fa-envelope"></i>yahoo5689@gmail.com</li>
+                </ul>
+            </div>
+            <div class="footer-div3">
+                <ul>
+                    <li class="heading">Gallery</li>
+                </ul>
+                <div class="Gallery-img1">
+                    <img src="course1.jpg" width="22%" alt="">
+                    <img src="course2.jpg" width="22%" alt="">
+                    <img src="course3.jpg" width="23%" alt="">
+                </div>
+                <div class="Gallery-img2">
+                    <img src="course4.jpg" width="22%" alt="">
+                    <img src="course5.jpg" width="22%" alt="">
+                    <img src="course6.jpg" width="23%" alt="">
+                </div>
+            </div>
+            <div class="footer-div4">
+                <ul>
+                    <li class="heading">Newsletter</li>
+                    <li>Dolor amet sit justo amet elitr clita ipsum elitr est.</li>
+                    <li><input type="email" placeholder="Your email"></li>
+                    <br>
+                    <li><button>Sign up</button></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
